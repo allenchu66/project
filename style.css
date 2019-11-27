@@ -24,7 +24,9 @@
   
   
 }
-
+#home{
+ padding-top: 10%;  
+}
 .outside {
 	background-color: #d18915;
 	width: 100%;
@@ -74,7 +76,7 @@ body {
     overflow: scroll;
     overflow-x: hidden;
     position:relative;
-    padding-top:10%; 
+     
 }
 a {
   color: #212121;
@@ -715,12 +717,16 @@ body{
   transition: background-color 0.4s;
 }
 
-#myNavbar .menu1 a{
-  background-color:#FFA726;
-}
+
 
 #myNavbar a{
 	color:#000000;
+}
+
+ #myNavbar .active {
+   background-color:#FF9100;
+   border:solid 1px orange;
+   font-weight:900;
 }
 
 
