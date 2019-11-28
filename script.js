@@ -41,7 +41,7 @@ viewBookLink.on('click', function(){
   return false;
 });
 
-//Detect click outside book
+/*//Detect click outside book
 $('html').on( 'click', function(event) {
   if ($(event.target).parents('.bk-book').length == 0){
     bookDefault();
@@ -49,7 +49,7 @@ $('html').on( 'click', function(event) {
       changeColorLink.click();
   }
   return false;
-});
+});*/
 
 //Bookblock clone and setup
 var bookBlock = $('.bb-bookblock');
