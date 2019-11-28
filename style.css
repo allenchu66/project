@@ -11,6 +11,10 @@
   padding: 0;
   margin: 0;
 }
+
+#home{
+ padding-top: 10%;  
+}
 #phototitle{
   background-color:#d18915;
   text-align:center;
@@ -24,9 +28,7 @@
   
   
 }
-#home{
- padding-top: 10%;  
-}
+
 .outside {
 	background-color: #d18915;
 	width: 100%;
@@ -76,7 +78,7 @@ body {
     overflow: scroll;
     overflow-x: hidden;
     position:relative;
-     
+    
 }
 a {
   color: #212121;
@@ -711,6 +713,11 @@ body{
   font-weight:600;
  
 }
+ #myNavbar .active {
+   background-color:#FF9100;
+   border:solid 1px orange;
+   font-weight:900;
+}
 
 #myNavbar a:hover{
   background-color:#FF9100;
@@ -718,15 +725,8 @@ body{
 }
 
 
-
 #myNavbar a{
 	color:#000000;
-}
-
- #myNavbar .active {
-   background-color:#FF9100;
-   border:solid 1px orange;
-   font-weight:900;
 }
 
 

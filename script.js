@@ -1,7 +1,4 @@
-$('body').scrollspy({ target: 'myNavbar' })/*«ö¶s¶]¦ì*/
-$('[data-spy="scroll"]').each(function () {
-  var $spy = $(this).scrollspy('refresh')
-})
+//$('body').scrollspy({ target: '#myNavbar'})
 var book = $('.bk-book');
 var bookPage = book.children('div.bk-page');
 var viewBookLink = book.find('.bk-bookview');
@@ -41,8 +38,8 @@ viewBookLink.on('click', function(){
   return false;
 });
 
-/*//Detect click outside book
-$('html').on( 'click', function(event) {
+//Detect click outside book
+/*$('html').on( 'click', function(event) {
   if ($(event.target).parents('.bk-book').length == 0){
     bookDefault();
     if (!colorContainers.hasClass('hidden'))
