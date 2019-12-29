@@ -2,57 +2,103 @@
 @import "bootstrap.min.css";
 
 
-
-
 *,
 *:after,
 *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-#home{
+/*#home{
  padding-top: 10%;  
-}
+}*/
+
 #phototitle{
-  background-color:#d18915;
   text-align:center;
   font-size:50px;
   font-family:DFKai-sb;
   font-weight:900;
-  padding-top:10px;
+  #padding-top:10px;
   color:#111;
-  border:solid;
+  #border-bottom:3px #d18915 solid;
+  border-top:3px #d18915 solid;
+ 
   
   
   
 }
 
+/*#team{
+  width:100%;
+  margin:auto;
+  background-color:#000;
+  
+}*/
+
+#photo{
+  paddind-top:-10px;
+}
+
 .outside {
-	background-color: #d18915;
+	background-color: #000;
 	width: 100%;
+  hight:400px;
 	overflow: auto;
 	padding-top:50px;
   padding-bottom:50px;
   padding-right:20px;
+  padding-left:10%;
   border-bottom:solid;
 }
 
 #left3{
-  padding-top:20px;
+  padding-top:5%;
+  margin-left:5%;
 	height:auto;
-	width:30%;
-	background-color: #d18915;
+	width:23%;
+	background-color: #000;
 	float: left;
 }
 #right3{
-	height:auto;
-	background-color: #d18915;
-	width:auto;
+  padding-top:6%;
+  margin-left:30%;
+  padding-right:-5%;
+  width:50%;
+	background-color: #000;
 	
 }
 
+.tips{
+  width:100%; 
+  hight:400px;
+  overflow: auto;
+  background-color: #111;
+}
+
+#tip1{
+  width:33.3%;
+  height:auto;
+  margin-right:0.05%;
+	background-color: #111;
+	float: left;
+}
+
+#tip2{
+  width:33.3%;
+  height:auto;
+	background-color: #11;
+	float: left;
+}
+
+#tip3{
+  width:33.3%;
+  height:auto;
+  background-color: #d18915;
+	float: right;
+}
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
@@ -127,10 +173,11 @@ a {
 	width: 100%;
 	height: 100%;
 	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-	transition: margin .5s, -webkit-transform .5s;
+	-webkit-transition: -webkit-transform .5s, margin .5s;
+	-moz-transition: -moz-transform .5s, margin .5s;
 	transition: transform .5s, margin .5s;
-	transition: transform .5s, margin .5s, -webkit-transform .5s;
 }
 
 .bk-book > div,
@@ -141,32 +188,39 @@ a {
 
 .bk-front {
 	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 0% 50%;
+	-moz-transform-origin: 0% 50%;
 	transform-origin: 0% 50%;
-	transition: -webkit-transform .5s;
+	-webkit-transition: -webkit-transform .5s;
+	-moz-transition: -moz-transform .5s;
 	transition: transform .5s;
-	transition: transform .5s, -webkit-transform .5s;
 	-webkit-transform: translate3d(0,0,20px);
+	-moz-transform: translate3d(0,0,20px);
 	transform: translate3d(0,0,20px);
 	z-index: 10;
 }
 
 .bk-front > div {
 	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
 
 .bk-page {
 	-webkit-transform: translate3d(0,0,19px);
+	-moz-transform: translate3d(0,0,19px);
 	transform: translate3d(0,0,19px);
 	display: none;
 	width: 100%;
 	height: 100%;
   overflow: hidden;
 	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 	z-index: 9;
 }
@@ -193,17 +247,20 @@ a {
 	height: 40px;
 	top: -15px;
 	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 .bk-back {
 	-webkit-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+	-moz-transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
 	transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
 }
 
 .bk-cover-back {
 	background-color:#111;
 	-webkit-transform: rotate3d(0,1,0,-180deg);
+	-moz-transform: rotate3d(0,1,0,-180deg);
 	transform: rotate3d(0,1,0,-180deg);
   overflow: hidden;
 }
@@ -212,24 +269,29 @@ a {
 	height: 430px;
 	top: 5px;
 	-webkit-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+	-moz-transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
 	transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
 	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 .bk-left {
 	height: 100%;
 	-webkit-transform: rotate3d(0,1,0,-90deg);
+	-moz-transform: rotate3d(0,1,0,-90deg);
 	transform: rotate3d(0,1,0,-90deg);
 }
 
 .bk-top {
 	-webkit-transform: rotate3d(1,0,0,90deg);
+	-moz-transform: rotate3d(1,0,0,90deg);
 	transform: rotate3d(1,0,0,90deg);
 }
 
 .bk-bottom {
 	-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+	-moz-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
 	transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
 }
 
@@ -241,16 +303,19 @@ a {
 
 .bk-viewinside .bk-front {
 	-webkit-transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
+	-moz-transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
 	transform: translate3d(0,0,20px) rotate3d(0,1,0,-160deg);
 }
 
 .bk-book.bk-viewinside {
 	-webkit-transform: translate3d(0,0,200px) rotate3d(0,1,0,0deg);
+	-moz-transform: translate3d(0,0,200px) rotate3d(0,1,0,0deg);
 	transform: translate3d(0,0,200px) rotate3d(0,1,0,0deg);
 }
 
 .bk-book.bk-viewback {
 	-webkit-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
+	-moz-transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
 	transform: translate3d(0,0,0px) rotate3d(0,1,0,180deg);
 }
 
@@ -290,7 +355,7 @@ a {
 .bk-book .bk-back,
 .bk-book .bk-left,
 .bk-book .bk-front:after {
-	background-color: #212121;
+	background-color: #000;
 }
 
 .bk-book .bk-cover{
@@ -306,6 +371,8 @@ a {
   height:10%;
   bottom:0;
   left:0;
+  -webkit-transition: top 0.5s, bottom 0.5s;
+  -moz-transition: top 0.5s, bottom 0.5s;
   transition: top 0.5s, bottom 0.5s;
   cursor: pointer;
 }
@@ -332,7 +399,7 @@ a {
 .bk-book .bk-cover .bk-title{
   display: table-cell;
   vertical-align:middle;
-  color: #212121;
+  color: #000;
   text-transform: uppercase;/*定義所有字母均為大寫*/
 }
 .bk-book .bk-cover .bk-title div{
@@ -354,7 +421,7 @@ a {
   line-height: 1em;
 }
 .highlight{
-  color:#212121;
+  color:#000;
 }
 
 .bk-book .bk-cover h3{
@@ -364,7 +431,7 @@ a {
   text-align: center;
   width: 100%;
   font: 800 0.7em "open sans";
-  color: #212121;
+  color: #111;
   text-transform: uppercase;
 }
 
@@ -373,7 +440,7 @@ a {
 }
 
 .bk-book .bk-left h2 {
-	color:#212121;
+	color:#000;
 	font-size: 15px;
 	line-height: 40px;
 	padding-right: 10px;
@@ -411,7 +478,7 @@ a {
   float: left;
   font: 800 8em "open sans";
   text-align: center;
-  color:#212121;
+  color:#000;
 }
 
 .bk-book .bk-page .color-square span,
@@ -422,45 +489,45 @@ a {
 
 /* Colors */
 
-.background-color-ED5565{ background-color: #212121 }
+.background-color-ED5565{ background-color: #000 }
 .color-ED5565{ color: #111 }
-.background-color-DA4453{ background-color: #212121 }
+.background-color-DA4453{ background-color: #000 }
 .color-DA4453{ color: #111}
-.background-color-FC6E51{ background-color: #212121}
+.background-color-FC6E51{ background-color: #000}
 .color-FC6E51{ color: #111 }
-.background-color-E9573F{ background-color: #212121 }
+.background-color-E9573F{ background-color: #000 }
 .color-E9573F{ color: #111 }
-.background-color-FFCE54{ background-color: #212121 }
+.background-color-FFCE54{ background-color: #000}
 .color-FFCE54{ color: #111 }
-.background-color-FCBB42{ background-color: #212121 }
+.background-color-FCBB42{ background-color: #000 }
 .color-FCBB42{ color: #111 }
-.background-color-A0D468{ background-color: #212121 }
+.background-color-A0D468{ background-color: #000 }
 .color-A0D468{ color: #111 }
-.background-color-8CC152{ background-color: #212121 }
+.background-color-8CC152{ background-color: #000 }
 .color-8CC152{ color: #111 }
-.background-color-48CFAD{ background-color: #212121 }
+.background-color-48CFAD{ background-color: #000 }
 .color-48CFAD{ color: #111 }
-.background-color-37BC9B{ background-color: #212121 }
+.background-color-37BC9B{ background-color: #000 }
 .color-37BC9B{ color: #111 }
-.background-color-4FC1E9{ background-color: #212121 }
+.background-color-4FC1E9{ background-color: #000 }
 .color-4FC1E9{ color: #111 }
-.background-color-3BAFDA{ background-color: #212121 }
+.background-color-3BAFDA{ background-color: #000 }
 .color-3BAFDA{ color: #000 }
-.background-color-5D9CEC{ background-color: #212121 }
+.background-color-5D9CEC{ background-color: #000 }
 .color-5D9CEC{ color: #111 }
-.background-color-4A89DC{ background-color: #212121 }
+.background-color-4A89DC{ background-color: #000 }
 .color-4A89DC{ color: #111 }
-.background-color-AC92EC{ background-color: #212121 }
+.background-color-AC92EC{ background-color: #000 }
 .color-AC92EC{ color: #111 }
-.background-color-967ADC{ background-color: #212121 }
+.background-color-967ADC{ background-color: #000 }
 .color-967ADC{ color: #111 }
-.background-color-EC87C0{ background-color: #212121 }
+.background-color-EC87C0{ background-color: #000 }
 .color-EC87C0{ color: #111 }
-.background-color-D770AD{ background-color: #212121 }
+.background-color-D770AD{ background-color: #000 }
 .color-D770AD{ color: #111 }
-.background-color-AAB2BD{ background-color: #212121 }
+.background-color-AAB2BD{ background-color: #000 }
 .color-AAB2BD{ color: #111 }
-.background-color-656D78{ background-color: #212121 }
+.background-color-656D78{ background-color: #000 }
 .color-656D78{ color: #111 }
 
 /* Fallbacks */
@@ -511,18 +578,21 @@ a {
   position: relative;
   z-index: 100;
   -webkit-perspective: 1300px;
+  -moz-perspective: 1300px;
   perspective: 1300px;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .bb-page {
   position: absolute;
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  transition-property: -webkit-transform;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
   transition-property: transform;
-  transition-property: transform, -webkit-transform;
 }
 
 .bb-vertical .bb-page {
@@ -530,6 +600,7 @@ a {
   height: 100%;
   left: 50%;
   -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
   transform-origin: left center;
 }
 
@@ -538,6 +609,7 @@ a {
   height: 50%;
   position:fixed;
   -webkit-transform-origin: center top;
+  -moz-transform-origin: center top;
   transform-origin: center top;
 }
 
@@ -554,6 +626,7 @@ a {
 
 .bb-outer {
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -568,21 +641,25 @@ a {
 .bb-page > div {
   width: 100%;
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
 .bb-page > div:not(:only-child) {
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .bb-vertical .bb-back {
   -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
 
 .bb-horizontal .bb-back {
   -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
   transform: rotateX(-180deg);
 }
 
@@ -594,7 +671,7 @@ a {
 
 .bb-overlay, 
 .bb-flipoverlay {
-  background-color:#212121;
+  background-color:#111;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -604,7 +681,7 @@ a {
 }
 
 .bb-flipoverlay {
-  background-color:#212121;
+  background-color:#111;
 }
 
 /* */
@@ -612,12 +689,14 @@ a {
 .bb-bookblock.bb-vertical > div.bb-page:first-child,
 .bb-bookblock.bb-vertical > div.bb-page:first-child .bb-back {
   -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
 .bb-bookblock.bb-horizontal > div.bb-page:first-child,
 .bb-bookblock.bb-horizontal > div.bb-page:first-child .bb-back {
   -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
 
@@ -634,42 +713,50 @@ a {
 .bb-vertical .bb-flip-next,
 .bb-vertical .bb-flip-initial {
   -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
 
 .bb-vertical .bb-flip-prev {
   -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
   transform: rotateY(0deg);
 }
 
 .bb-horizontal .bb-flip-next,
 .bb-horizontal .bb-flip-initial {
   -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
 
 .bb-horizontal .bb-flip-prev {
   -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
 }
 
 .bb-vertical .bb-flip-next-end {
   -webkit-transform: rotateY(-15deg);
+  -moz-transform: rotateY(-15deg);
   transform: rotateY(-15deg);
 }
 
 .bb-vertical .bb-flip-prev-end {
   -webkit-transform: rotateY(-165deg);
+  -moz-transform: rotateY(-165deg);
   transform: rotateY(-165deg);
 }
 
 .bb-horizontal .bb-flip-next-end {
   -webkit-transform: rotateX(15deg);
+  -moz-transform: rotateX(15deg);
   transform: rotateX(15deg);
 }
 
 .bb-horizontal .bb-flip-prev-end {
   -webkit-transform: rotateX(165deg);
+  -moz-transform: rotateX(165deg);
   transform: rotateX(165deg);
 }
 
@@ -695,7 +782,7 @@ a {
 }
 
 body{
-  background-color:#212121 !important;
+  background-color:#000 !important;
 }
 
 .icon-bar {
@@ -705,74 +792,74 @@ body{
   background-color: #d18915;
 }
 #myNavbar{
-  paddind:0px 20px;
+  
   width:100%;
 	background-color: #d18915;
   font-size:20px;
   font-family:DFKai-sb;
   font-weight:600;
+  min-height: 0px;
  
 }
+
+
  #myNavbar .active {
    background-color:#FF9100;
    border:solid 1px orange;
    font-weight:900;
 }
 
+
+
+
 #myNavbar a:hover{
+
   background-color:#FF9100;
   transition: background-color 0.4s;
 }
 
-
+ .navbar-brand,.navbar-nav li a {
+    height:40px;
+   }
 #myNavbar a{
 	color:#000000;
 }
 
+#myNavbar.menu5{
+  margin-top:-15px;
+}
 
 
+#youtube{
+  width:80px;
+
+}
 
 
 #header{
   width:100%;
   color:#d18915;
-	padding top: 10px;
-	background: #000000;
+	background: #d18915;
    z-index:1000;
   border-bottom-style:solid;
   border-width:3px;
   border-bottom-color:#111;
+  
+
 }
 
 
 
-#logo{
-  float:left;
-  margin-left:22%;
-	vertical-align: middle;
+.logo{
+  #border-style:solid;
+  #border-width:1px;
+  #border-bottom-color:#d18915;
 }
 
-#catch{
-  float:left;
-  font-size:40px;
-	vertical-align:middle;
-  font-family:DFKai-sb;
-  line-height:28px;
-  margin-top:50px;
+.aboutus{
+  
+
+ 
 }
 
-/* 首尾
----------------------------*/
-#footer{
-  width:100%;
-	padding: 10px 0;
-	background: #d18915;
-  bottom:0px;
-  position:fixed;
-  color:#000;
-}
 
-#copyright{
-  right:12px;
-	float: right;
-}
