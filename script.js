@@ -1,4 +1,16 @@
-//$('body').scrollspy({ target: '#myNavbar'})
+$('body').scrollspy({ target: '#myNavbar'})
+$("#gotop").click(function(){
+    jQuery("html,body").animate({
+        scrollTop:0
+    },1000);
+});
+$(window).scroll(function() {
+    if ( $(this).scrollTop() > 300){
+        $('#gotop').fadeIn("fast");
+    } else {
+        $('#gotop').stop().fadeOut("fast");
+    }
+});
 var book = $('.bk-book');
 var bookPage = book.children('div.bk-page');
 var viewBookLink = book.find('.bk-bookview');

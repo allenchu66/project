@@ -31,6 +31,19 @@
   
 }
 
+#special{
+  margin-top:-3px;
+  text-align:center;
+  font-size:50px;
+  font-family:DFKai-sb;
+  font-weight:900;
+  #padding-top:10px;
+  color:#111;
+  #border-bottom:3px #d18915 solid;
+  border-top:3px #d18915 solid;
+  
+}
+
 /*#team{
   width:100%;
   margin:auto;
@@ -51,9 +64,15 @@
   padding-bottom:50px;
   padding-right:20px;
   padding-left:10%;
-  border-bottom:solid;
+  border-bottom:solid 1px;
+  #border-left:3px solid #d18915;
+  #border-right:3px solid #d18915;
 }
-
+#menu2{
+  border-left:3px solid #d18915;
+  border-right:3px solid #d18915;
+  
+}
 #left3{
   padding-top:5%;
   margin-left:5%;
@@ -72,32 +91,40 @@
 }
 
 .tips{
+  padding-top:1%;
+  padding-bottom:1%;
   width:100%; 
   hight:400px;
   overflow: auto;
-  background-color: #111;
+  background-color: #000;
+  border-top:3px solid #d18915;
+  border-left:3px solid #d18915;
+  border-right:3px solid #d18915;
 }
 
 #tip1{
-  width:33.3%;
+  width:32%;
   height:auto;
-  margin-right:0.05%;
-	background-color: #111;
+ 
+  margin-right:1%;
+  margin-left:1%;
+	background-color: #000;
 	float: left;
 }
 
 #tip2{
-  width:33.3%;
+  width:32%;
   height:auto;
-	background-color: #11;
+	background-color: #000;
 	float: left;
 }
 
 #tip3{
-  width:33.3%;
+  width:32%;
   height:auto;
   background-color: #d18915;
 	float: right;
+  margin-right:1%;
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -841,9 +868,9 @@ body{
   color:#d18915;
 	background: #d18915;
    z-index:1000;
-  border-bottom-style:solid;
-  border-width:3px;
-  border-bottom-color:#111;
+  #border-bottom-style:solid;
+  #border-width:3px;
+  #border-bottom-color:#d18915;
   
 
 }
@@ -862,4 +889,22 @@ body{
  
 }
 
+#gotop {
+      
+    
+    position: fixed;
+    border-radius: 50px;
+    right: 20px;
+    bottom: 30px;
+    padding: 10px 16px;
+    font-size: 25px;
+    background: #d18915;
+    color: #FAFCFD;
+    cursor: pointer;
+    z-index: 1000;
+}
 
+
+#img2{
+  margin-top:-11px;
+}
