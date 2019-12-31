@@ -1,7 +1,6 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,800);
 @import "bootstrap.min.css";
 
-
 *,
 *:after,
 *:before {
@@ -25,6 +24,7 @@
   color:#111;
   #border-bottom:3px #d18915 solid;
   border-top:3px #d18915 solid;
+  margin-bottom:-1.5%;
  
   
   
@@ -32,13 +32,13 @@
 }
 
 #special{
-  margin-top:-3px;
   text-align:center;
   font-size:50px;
   font-family:DFKai-sb;
   font-weight:900;
   #padding-top:10px;
   color:#111;
+  
   #border-bottom:3px #d18915 solid;
   border-top:3px #d18915 solid;
   
@@ -56,7 +56,7 @@
 }
 
 .outside {
-	background-color: #000;
+	background-color: #333;
 	width: 100%;
   hight:400px;
 	overflow: auto;
@@ -64,7 +64,7 @@
   padding-bottom:50px;
   padding-right:20px;
   padding-left:10%;
-  border-bottom:solid 1px;
+  border-bottom:solid #3C3C3C 3px;
   #border-left:3px solid #d18915;
   #border-right:3px solid #d18915;
 }
@@ -74,23 +74,24 @@
   
 }
 #left3{
-  padding-top:5%;
+  padding-top:2%;
   margin-left:5%;
 	height:auto;
 	width:23%;
-	background-color: #000;
+	background-color: #333;
 	float: left;
 }
 #right3{
-  padding-top:6%;
+  padding-top:1%;
   margin-left:30%;
   padding-right:-5%;
-  width:50%;
-	background-color: #000;
+  width:60%;
+	background-color: #333;
 	
 }
 
 .tips{
+  
   padding-top:1%;
   padding-bottom:1%;
   width:100%; 
@@ -108,14 +109,14 @@
  
   margin-right:1%;
   margin-left:1%;
-	background-color: #000;
+	background-color: #333;
 	float: left;
 }
 
 #tip2{
   width:32%;
   height:auto;
-	background-color: #000;
+	background-color: #333;
 	float: left;
 }
 
@@ -285,7 +286,7 @@ a {
 }
 
 .bk-cover-back {
-	background-color:#111;
+	background-color:#000;
 	-webkit-transform: rotate3d(0,1,0,-180deg);
 	-moz-transform: rotate3d(0,1,0,-180deg);
 	transform: rotate3d(0,1,0,-180deg);
@@ -698,7 +699,7 @@ a {
 
 .bb-overlay, 
 .bb-flipoverlay {
-  background-color:#111;
+  background-color:#333;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -708,7 +709,7 @@ a {
 }
 
 .bb-flipoverlay {
-  background-color:#111;
+  background-color:#333;
 }
 
 /* */
