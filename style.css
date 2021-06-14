@@ -898,17 +898,10 @@ body{
  
 }
 
-#gotop {
-      
-    
+#gotop {     
     position: fixed;
-    border-radius: 50px;
     right: 20px;
     bottom: 30px;
-    padding: 10px 16px;
-    font-size: 25px;
-    background: #d18915;
-    color: #FAFCFD;
     cursor: pointer;
     z-index: 1000;
 }
