@@ -1,162 +1,86 @@
-$('body').scrollspy({ target: '#myNavbar'})
-$("#gotop").click(function(){
-    jQuery("html,body").animate({
-        scrollTop:0
-    },1000);
-});
-$(window).scroll(function() {
-    if ( $(this).scrollTop() > 300){
-        $('#gotop').fadeIn("fast");
-    } else {
-        $('#gotop').stop().fadeOut("fast");
+(() => {
+  'use strict';
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---------- Highlight the nav link of the section in view ---------- */
+  const nav = document.querySelector('.site-nav__list');
+  const links = new Map(
+    [...document.querySelectorAll('.site-nav__list a[href^="#"]')].map((a) => [a.hash.slice(1), a]),
+  );
+
+  const setActive = (id) => {
+    links.forEach((a, key) => {
+      const on = key === id;
+      a.classList.toggle('is-active', on);
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    const a = links.get(id);
+    // On phones the nav scrolls sideways: keep the active link in view.
+    if (a && nav.scrollWidth > nav.clientWidth) {
+      const left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+      nav.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
     }
-});
-var book = $('.bk-book');
-var bookPage = book.children('div.bk-page');
-var viewBookLink = book.find('.bk-bookview');
-var viewBackLink = book.find('.bk-bookback');
-var changeColorLink = book.find('.change-color');
-var colorContainers = book.find('.color-container');
+  };
 
-var bookDefault = function(){
-  book.data({ opened : false, flip : false })
-      .removeClass('bk-viewback bk-viewinside')
-      .addClass('bk-bookdefault');
-};
-var bookBack = function(){
-  book.data({ opened : false, flip : true })
-      .removeClass('bk-viewinside bk-bookdefault')
-      .addClass('bk-viewback');
-};
-var bookInside = function(){
-  book.data({ opened : true, flip : false })
-      .removeClass('bk-viewback bk-bookdefault')
-      .addClass( 'bk-viewinside');
-};
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    // A section is "current" while it crosses the middle of the screen.
+    { rootMargin: '-50% 0px -50% 0px' },
+  );
+  links.forEach((_, id) => {
+    const section = document.getElementById(id);
+    if (section) spy.observe(section);
+  });
 
-bookDefault();
-
-viewBackLink.on('click', function(){
-  if(book.data('flip')){
-    bookDefault();
-  }else{
-    bookBack();
-  }
-  return false;
-});
-
-viewBookLink.on('click', function(){
-  bookInside();
-  return false;
-});
-
-//Detect click outside book
-/*$('html').on( 'click', function(event) {
-  if ($(event.target).parents('.bk-book').length == 0){
-    bookDefault();
-    if (!colorContainers.hasClass('hidden'))
-      changeColorLink.click();
-  }
-  return false;
-});*/
-
-//Bookblock clone and setup
-var bookBlock = $('.bb-bookblock');
-var backCover = bookBlock.parents('.bk-book').find('.bk-cover-back');
-var backCoverBookBlock = bookBlock.clone();
-backCoverBookBlock.appendTo(backCover);
-
-var bookBlockFirst = function(){
-  bookBlock.bookblock('first');
-  backCoverBookBlock.bookblock('first');
-}
-var bookBlockLast = function(){
-  bookBlock.bookblock('last');
-  backCoverBookBlock.bookblock('last');
-}
-
-var bookBlockLastIndex = bookBlock.children().length-1;
-var bookBlockNext = function(){
-  if (book.data('flip'))
-    return bookDefault();
-  if(!book.data('opened'))
-    return bookInside();
-  if (bookBlock.find('.bb-item:visible').index()===bookBlockLastIndex)
-    return bookBack() + bookBlockFirst();
-  bookBlock.bookblock('next');
-  backCoverBookBlock.bookblock('next');
-}
-var bookBlockPrev = function(){
-  if (book.data('flip'))
-    return bookBlockLast()+bookInside();
-  if(!book.data('opened'))
-    return bookBack();
-  if (bookBlock.find('.bb-item:visible').index()===0)
-    return bookDefault();
-  bookBlock.bookblock('prev');
-  backCoverBookBlock.bookblock('prev');
-}
-
-bookBlock.children().add(backCoverBookBlock.children()).on({
-  'swipeleft': function(event) {
-    bookBlockPrev();
-    return false;
-  },
-  'swiperight': function(event) {
-    bookBlockPrev();
-    return false;
-  },
-  'click': function(event){
-    if ($(event.target).parents('.bk-cover-back').length == 0)
-      bookBlockNext();
-    else
-      bookBlockPrev();
-    return false;
-  }
-});
-
-bookBlock.bookblock({
-  speed: 800,
-  shadow: false
-});
-backCoverBookBlock.bookblock({
-  speed: 800,
-  shadow: false
-});
-
-var throttleFunc = function(func, limit, limitQueue){
-  var lastTime = + new Date;
-  var queued = 0;
-  return function throttledFunc(){
-    var now = + new Date;
-    var args = Array.prototype.slice.call(arguments);
-    if (now - lastTime > limit){
-      func.apply(this, args);
-      lastTime = + new Date;
-    }else{
-      var boundFunc = throttledFunc.bind.apply(throttledFunc, [this].concat(args));
-      queued++;
-      if (queued<limitQueue)
-        window.setTimeout(boundFunc, lastTime+limit-now);
-    }
-  }
-}
-
-$(document).keydown(throttleFunc(function(e) {
-  var keyCode = e.keyCode || e.which,
-    arrow = {
-      left : 37,
-      up : 38,
-      right : 39,
-      down : 40
+  /* ---------- Back-to-top button ---------- */
+  const gotop = document.querySelector('.gotop');
+  if (gotop) {
+    let ticking = false;
+    const update = () => {
+      gotop.classList.toggle('is-visible', window.scrollY > 300);
+      ticking = false;
     };
-
-  switch (keyCode) {
-    case arrow.left:
-      bookBlockPrev();
-      break;
-    case arrow.right:
-      bookBlockNext();
-      break;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true },
+    );
+    update();
+    gotop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    });
   }
-}, 500, 2));
+
+  /* ---------- YouTube: show a thumbnail, load the player on demand ---------- */
+  // Ten embedded players would download several MB of script up front;
+  // a thumbnail link costs one small image until someone presses play.
+  document.querySelectorAll('.video[data-yt]').forEach((video) => {
+    video.addEventListener('click', (e) => {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return; // allow "open in new tab"
+      e.preventDefault();
+      const id = video.dataset.yt;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`;
+      iframe.title = video.getAttribute('aria-label') || 'YouTube video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.className = 'video__frame';
+      const wrap = document.createElement('div');
+      wrap.className = 'video is-playing';
+      wrap.append(iframe);
+      video.replaceWith(wrap);
+      iframe.focus();
+    });
+  });
+})();
